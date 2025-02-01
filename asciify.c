@@ -9,7 +9,6 @@ void encrypt(const char* str) {
 }
 
 void decrypt(char* str) {
-	int last = 0;
 	while (strlen(str) > 1) {
 		char tmp_str[strlen(str)];
 		strcpy(tmp_str, str);
@@ -38,9 +37,11 @@ void decrypt(char* str) {
 	}
 }
 
+void print_usage() {printf("Usage: asciify [OPTION] [MESSAGE]\n  -e\tencrypts the input\n  -d\tdecrypts the input\n");} 
+
 int main(int argc, char* argv[]) {
 	if (argc != 3) {
-		printf("Usage: asciify [OPTION] [MESSAGE]\n  -e\tencrypts the input\n  -d\tdecrypts the input");
+		print_usage();
 		exit(1);
 	}
 
@@ -53,7 +54,7 @@ int main(int argc, char* argv[]) {
                 decrypt(argv[2]);
                 printf("\n");
 	} else {
-		printf("Usage: asciify [OPTION] [MESSAGE]\n  -e\tencrypts the input\n  -d\tdecrypts the input");
+		print_usage();
 		exit(1);
 	}
 
